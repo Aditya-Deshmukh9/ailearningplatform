@@ -15,7 +15,10 @@ export function middleware(request) {
     return NextResponse.redirect(new URL("/login", request.nextUrl));
   }
 
-  return NextResponse.next();
+  const headers = new Headers(request.headers);
+  headers.set("x-current-path", request.nextUrl.pathname);
+
+  return NextResponse.next({ headers });
 }
 
 export const config = {

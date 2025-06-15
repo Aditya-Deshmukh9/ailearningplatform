@@ -30,7 +30,7 @@ export function LoginForm({ className, ...props }) {
 
     if (message?.success === true) {
       toast(message?.data?.data?.message);
-      router.push("/");
+      router.push("/dashboard");
     }
   }, [message]);
 
@@ -82,10 +82,7 @@ export function LoginForm({ className, ...props }) {
               </div>
               <div className="text-center text-sm">
                 Don&apos;t have an account?{" "}
-                <Link
-                  href="/auth/register"
-                  className="underline underline-offset-4"
-                >
+                <Link href="/register" className="underline underline-offset-4">
                   Sign up
                 </Link>
               </div>
